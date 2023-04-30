@@ -1,0 +1,172 @@
+.home {
+    padding: 20px 5%;
+}
+
+
+
+
+.sobre {
+    padding: 40px 0;
+}
+
+.sobre__titulo {
+    text-align: center;
+    color: var(--roxo-net-2);
+}
+
+.sobre__subtitulo {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 20px;
+    color: var(--roxo-net-2);
+}
+
+.sobre__detalhes {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.sobre__imagem-perfil {
+    width: 200px;
+    border-radius: 50%;
+}
+
+.sobre__lista {
+    list-style-position: inside;
+    padding-left: 10px;
+    transition: 1s all;
+    cursor: pointer;
+    max-width: 1000px;
+}
+
+.sobre__lista li:hover {
+    color: var(--rosa-net-1);
+}
+
+.sobre__item--contatos {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.sobre__item-contato-link {
+    font-size: 2rem;
+    color: var(--branco-1);
+    margin-right: 15px;
+    color: white;
+}
+
+.sobre__item-contato-link:hover {
+    color: var(--rosa-net-1);
+    transition: 1s all;
+}
+
+
+
+
+
+
+.skills {
+    padding: 40px 0;
+}
+
+.skills__titulo {
+    margin-bottom: 20px;
+    color: var(--roxo-net-2);
+}
+
+.skills__container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    overflow: auto;
+    padding: 10px 0;
+}
+
+.skill__card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 50%;
+    background-color: var(--cinza-1);
+}
+
+.skill__imagem {
+    width: 80px;
+}
+
+.skill__lista {
+    list-style-position: inside;
+    padding-left: 10px;
+}
+
+.skill__item {
+    transition: 1s all;
+    cursor: pointer;
+}
+
+.skill__item:hover {
+    color: var(--rosa-net-1);
+    margin-left: 10px;
+}
+
+
+
+
+
+
+
+
+.projetos {
+    padding: 40px 0;
+}
+
+.projetos__titulo {
+    margin-bottom: 20px;
+    color: var(--roxo-net-2);
+}
+
+.projetos__carregando-container {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.projetos__icone-carregando {
+    font-size: 30px;
+    animation: spin 1s infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+
+
+
+
+
+@media (max-width: 1400px) {
+    .sobre__detalhes {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .sobre__imagem-perfil {
+        width: 200px;
+        border-radius: 50%;
+    }
+
+    .sobre__imagem-perfil {
+        width: 200px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+    }
+}
