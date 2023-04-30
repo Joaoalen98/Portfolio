@@ -3,11 +3,15 @@
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 20px;
-    padding: 10px;
+    padding: 20px;
     color: var(--branco-1);
     text-decoration: none;
     transition: 1s all;
     cursor: pointer;
+}
+
+.projeto:hover[b-38ehb8bvll] {
+    background-color: rgba(160, 160, 160, 0.1);
 }
 
 .projeto__texto-container[b-38ehb8bvll] {
@@ -73,10 +77,10 @@
     background-image: linear-gradient(140deg, var(--rosa-net-1) 20%, var(--rosa-net-2));
 }
 
-    .projeto__github-link:hover[b-38ehb8bvll] {
-        background-image: none;
-        background-color: var(--roxo-net-2);
-    }
+.projeto__github-link:hover[b-38ehb8bvll] {
+    background-image: none;
+    background-color: var(--roxo-net-2);
+}
 
 .projeto__linha[b-38ehb8bvll] {
     height: 3px;
