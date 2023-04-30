@@ -1,5 +1,6 @@
 ﻿@page "/"
 @inject GithubApiService api
+@inject IJSRuntime jsRuntime
 
 <PageTitle>Portifólio</PageTitle>
 
@@ -14,10 +15,10 @@
             <div class="sobre__descricao">
                 <ul class="sobre__lista">
                     <li>
-                        Cursando Análise e Desenvolvimento de Sistemas na Faculdade Impacta.
+                        Cursando Análise e Desenvolvimento de Sistemas na Faculdade Impacta;
                     </li>
                     <li>
-                        Atualmente Estudo C#: ASP.NET CORE (WepApi, Mvc), Windows Forms, Blazor, MAUI.
+                        Atualmente Estudo C#: ASP.NET CORE (WepApi, Mvc), Windows Forms, Blazor, MAUI;
                     </li>
                     <li>
                         Tenho experiência prática em projetos da plataforma .NET utilizando frameworks conhecidos
@@ -25,23 +26,24 @@
                     </li>
                     <li>
                         Tenho conhecimento e experiência na contrução de projetos usando DDD, arquitetura em camadas,
-                        microsserviços, Clean e SOLID.
+                        microsserviços, Clean e SOLID;
                     </li>
                     <li>
-                        Algumas tecnologias que tenho interesse são: Flutter e Angular (do qual tenho algum conhecimento básico.);
+                        Algumas tecnologias que tenho interesse são: Flutter e Angular (do qual tenho algum conhecimento
+                        básico);
                     </li>
 
                     <li class="sobre__item--contatos">
                         <a class="sobre__item-contato-link sobre__item-contato-link--linkedin"
-                           href="https://www.linkedin.com/in/jo%C3%A3o-a-a6588b129/" target="_blank">
+                            href="https://www.linkedin.com/in/jo%C3%A3o-a-a6588b129/" target="_blank">
                             <i class="fa-brands fa-linkedin"></i>
                         </a>
                         <a class="sobre__item-contato-link sobre__item-contato-link--github"
-                           href="https://github.com/Joaoalen98" target="_blank">
+                            href="https://github.com/Joaoalen98" target="_blank">
                             <i class="fa-brands fa-github"></i>
                         </a>
                         <a class="sobre__item-contato-link sobre__item-contato-link--email"
-                           href="mailto:joao.alencar1497@gmail.com" target="_blank">
+                            href="mailto:joao.alencar1497@gmail.com" target="_blank">
                             <i class="fa-solid fa-envelope"></i>
                         </a>
                     </li>
@@ -56,19 +58,19 @@
 
         <div class="skills__container">
             <div class="skill__card">
-                <img class="skill__imagem" src="/assets/images/html5.svg" alt="icone chsarp">
+                <img class="skill__imagem" src="./assets/images/html5.svg" alt="icone chsarp">
             </div>
             <div class="skill__card">
-                <img class="skill__imagem" src="/assets/images/css3.svg" alt="icone chsarp">
+                <img class="skill__imagem" src="./assets/images/css3.svg" alt="icone chsarp">
             </div>
             <div class="skill__card">
-                <img class="skill__imagem" src="/assets/images/javascript.svg" alt="icone chsarp">
+                <img class="skill__imagem" src="./assets/images/javascript.svg" alt="icone chsarp">
             </div>
             <div class="skill__card">
-                <img class="skill__imagem" src="/assets/images/csharp.svg" alt="icone chsarp">
+                <img class="skill__imagem" src="./assets/images/csharp.svg" alt="icone chsarp">
             </div>
             <div class="skill__card">
-                <img class="skill__imagem" src="/assets/images/angular.svg" alt="icone angular">
+                <img class="skill__imagem" src="./assets/images/angular.svg" alt="icone angular">
             </div>
         </div>
     </article>
@@ -106,7 +108,15 @@
     {
         await base.OnInitializedAsync();
 
-        _repositorios = await api.GetRepositorios("joaoalen98");
-        _donoRepositorio = await api.GetDonoRepositorio("joaoalen98");
+
+        try
+        {
+            _repositorios = await api.GetRepositorios("joaoalen98");
+            _donoRepositorio = await api.GetDonoRepositorio("joaoalen98");
+        }
+        catch (System.Exception ex)
+        {
+            await jsRuntime.InvokeAsync<string>("alert", ex.Message);
+        }
     }
 }

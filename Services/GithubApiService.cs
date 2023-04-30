@@ -28,7 +28,7 @@ namespace Portfolio.Services
             }
             else
             {
-                throw new Exception($"Erro ao requisitar repositório - {await req.Content.ReadAsStreamAsync()}");
+                throw new Exception($"Erro ao requisitar usuário do GitHub");
             }
         }
 
@@ -45,7 +45,7 @@ namespace Portfolio.Services
             }
             else
             {
-                throw new Exception($"Erro ao requisitar repositório - {await req.Content.ReadAsStreamAsync()}");
+                throw new Exception($"Erro ao requisitar repositórios");
             }
         }
     }
