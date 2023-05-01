@@ -1,0 +1,8 @@
+.skills {
+    padding: 20px 5%;
+}
+
+.titulo {
+    color: var(--mud-palette-primary);
+    font-weight: bold;
+}

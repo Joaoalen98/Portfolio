@@ -4,24 +4,7 @@
 <PageTitle>Projetos</PageTitle>
 
 <style>
-    .projetos {
-        padding: 20px 5%;
-    }
 
-    .titulo {
-        color: var(--mud-palette-primary);
-        font-weight: bold;
-    }
-
-    .projetos-lista {
-        margin-top: 50px;
-    }
-
-    .card-projeto {
-        margin-bottom: 20px;
-        border-bottom: 1px solid #444;
-        padding: 20px 0;
-    }
 </style>
 
 <section class="projetos">
@@ -44,11 +27,8 @@
                 <div class="card-projeto">
                     <h4 class="card-projeto__titulo">@projeto.Name</h4>
                     <p>@projeto.Description</p>
-                    <MudButton 
-                        EndIcon="@Icons.Custom.Brands.GitHub" 
-                        Href="@projeto.HtmlUrl" Target="_blank" 
-                        Color="Color.Secondary" 
-                        Style="text-transform: none;">
+                    <MudButton EndIcon="@Icons.Custom.Brands.GitHub" Href="@projeto.HtmlUrl" Target="_blank"
+                        Color="Color.Secondary" Style="text-transform: none;">
                         Repositório
                     </MudButton>
                 </div>
