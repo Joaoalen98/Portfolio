@@ -1,0 +1,68 @@
+﻿@page "/projetos"
+@inject GithubApiService Api
+
+<PageTitle>Projetos</PageTitle>
+
+<style>
+    .projetos {
+        padding: 20px 5%;
+    }
+
+    .titulo {
+        color: var(--mud-palette-primary);
+        font-weight: bold;
+    }
+
+    .projetos-lista {
+        margin-top: 50px;
+    }
+
+    .card-projeto {
+        margin-bottom: 20px;
+        border-bottom: 1px solid #444;
+        padding: 20px 0;
+    }
+</style>
+
+<section class="projetos">
+    <h2 class="titulo">Meus Projetos:</h2>
+    <small>Recuperados através da API do GitHub</small>
+
+
+    <div class="projetos-lista">
+        @if (_repositorios == null)
+        {
+            <div class="text-center">
+                <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
+            </div>
+        }
+        else
+        {
+
+            @foreach (var projeto in _repositorios)
+            {
+                <div class="card-projeto">
+                    <h4 class="card-projeto__titulo">@projeto.Name</h4>
+                    <p>@projeto.Description</p>
+                    <MudButton 
+                        EndIcon="@Icons.Custom.Brands.GitHub" 
+                        Href="@projeto.HtmlUrl" Target="_blank" 
+                        Color="Color.Secondary" 
+                        Style="text-transform: none;">
+                        Repositório
+                    </MudButton>
+                </div>
+            }
+        }
+    </div>
+</section>
+
+@code {
+    private IEnumerable<GitHubRepository> _repositorios;
+
+    protected async override Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        _repositorios = await Api.GetRepositorios("joaoalen98");
+    }
+}

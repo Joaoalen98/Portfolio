@@ -34,14 +34,14 @@ namespace Portfolio.Services
 
 
 
-        public async Task<IEnumerable<GithubRepository>> GetRepositorios(string userName)
+        public async Task<IEnumerable<GitHubRepository>> GetRepositorios(string userName)
         {
             var req = await _http.GetAsync($"users/{userName}/repos");
 
             if (req.IsSuccessStatusCode)
             {
                 var res = await req.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<List<GithubRepository>>(res);
+                return JsonConvert.DeserializeObject<List<GitHubRepository>>(res);
             }
             else
             {

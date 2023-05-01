@@ -1,6 +1,51 @@
 ﻿@inherits LayoutComponentBase
 
-<main>
-    @Body
-</main>
+<MudThemeProvider Theme="CustomTheme" />
+<MudDialogProvider />
+<MudSnackbarProvider />
 
+<MudLayout>
+    <MudAppBar Color="Color.Transparent" Elevation="0">
+        <MudIconButton OnClick="ToggleMenu" Icon="@Icons.Material.Rounded.Menu" />
+        <MudSpacer />
+        <MudIconButton Href="https://www.linkedin.com/in/jo%C3%A3o-a-a6588b129/" Target="_blank"
+            Icon="@Icons.Custom.Brands.LinkedIn" />
+        <MudIconButton Href="https://github.com/Joaoalen98" Target="_blank" Icon="@Icons.Custom.Brands.GitHub" />
+        <MudIconButton Href="mailto:joao.alencar1497@gmail.com" Icon="@Icons.Custom.Brands.Gmail" />
+    </MudAppBar>
+    <MudDrawer Style="background-color: var(--cinza-1);" Fixed="true" @bind-Open="toggle">
+        <MudDrawerHeader></MudDrawerHeader>
+        <MudNavMenu>
+            <MudNavLink Href="/" Match="NavLinkMatch.All">Sobre Mim</MudNavLink>
+            <MudNavLink Href="/skills">Minhas Skills</MudNavLink>
+            <MudNavLink Href="/projetos">Projetos</MudNavLink>
+        </MudNavMenu>
+    </MudDrawer>
+    <MudMainContent>
+        @Body
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    private bool toggle = true;
+
+    private MudTheme CustomTheme = new MudTheme()
+        {
+            Palette = new PaletteLight
+            {
+                Primary = Colors.DeepPurple.Accent2,
+                Secondary = Colors.Cyan.Accent3,
+                Tertiary = Colors.Pink.Accent4,
+                AppbarText = Colors.Grey.Lighten3,
+                AppbarBackground = Colors.Grey.Darken4,
+                DrawerText = Colors.Grey.Lighten3,
+                ActionDefault = Colors.Grey.Lighten3,
+                HoverOpacity = 0.2,
+            }
+        };
+
+    void ToggleMenu()
+    {
+        toggle = !toggle;
+    }
+}

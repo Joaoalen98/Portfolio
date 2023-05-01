@@ -1,0 +1,52 @@
+﻿<style>
+    .container-porcentagens {
+        margin-top: 50px;
+    }
+</style>
+
+<div class="container-porcentagens">
+    <div class="card-porcentagem">
+        <small>Front End</small>
+        <MudProgressLinear Color="Color.Tertiary" Value="percFrontEnd" Class="my-7" />
+    </div>
+    <div class="card-porcentagem">
+        <small>Back End</small>
+        <MudProgressLinear Color="Color.Primary" Value="percBackEnd" Class=" my-7" />
+    </div>
+    <div class="card-porcentagem">
+        <small>Full Stack</small>
+        <MudProgressLinear Color="Color.Secondary" Value="percFullStack" Class="my-7" />
+    </div>
+</div>
+
+@code {
+    private double percFrontEnd = 0.00;
+    private double percBackEnd = 0.00;
+    private double percFullStack = 0.00;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        while (percFrontEnd <= 40)
+        {
+            percFrontEnd += 1;
+            StateHasChanged();
+            await Task.Delay(5);
+        }
+
+        while (percBackEnd <= 70)
+        {
+            percBackEnd += 1;
+            StateHasChanged();
+            await Task.Delay(5);
+        }
+
+        while (percFullStack <= 50)
+        {
+            percFullStack += 1;
+            StateHasChanged();
+            await Task.Delay(5);
+        }
+    }
+}

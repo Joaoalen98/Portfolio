@@ -13,19 +13,21 @@
     --rosa-net-1: #d600aa;
     --rosa-net-2: #cb4150;
     --turquesa-net-1: #7edae3;
+
+    --cinza-1: #1a1a27;
 }
 
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-
 
 html,
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--cinza-escuro-2);
-    color: var(--branco-1);
+    background-color: var(--cinza-1);
+    color: white;
 }
 
 h1:focus {
@@ -34,7 +36,7 @@ h1:focus {
 
 a,
 .btn-link {
-    color: #0071c1;
+    text-decoration: none;
 }
 
 .btn-primary {
@@ -113,7 +115,7 @@ a,
 }
 
 .loading-progress circle:last-child {
-    stroke: var(--rosa-net-1);
+    stroke: #7C4DFF;
     stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
     transition: stroke-dasharray 0.05s ease-in-out;
 }
@@ -123,9 +125,24 @@ a,
     text-align: center;
     font-weight: bold;
     inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
-    color: var(--branco-1);
 }
 
 .loading-progress-text:after {
     content: var(--blazor-load-percentage-text, "Loading");
+}
+
+
+
+.fade-in {
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }

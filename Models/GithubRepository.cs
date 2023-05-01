@@ -2,7 +2,7 @@
 
 namespace Portfolio.Models
 {
-    public class GithubRepository
+    public class GitHubRepository
     {
         [JsonProperty("id")]
         public int Id { get; set; }
@@ -330,6 +330,4 @@ namespace Portfolio.Models
         [JsonProperty("secret_scanning_push_protection")]
         public SecretScanningPushProtection SecretScanningPushProtection { get; set; }
     }
-
-
 }
