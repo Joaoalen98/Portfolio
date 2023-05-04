@@ -1,5 +1,5 @@
 ﻿@page "/projetos"
-@inject GithubApiService Api
+@using Portfolio.Data
 
 <PageTitle>Projetos</PageTitle>
 
@@ -9,40 +9,44 @@
 
 <section class="projetos">
     <h2 class="titulo">Meus Projetos:</h2>
-    <small>Recuperados através da API do GitHub</small>
-
 
     <div class="projetos-lista">
-        @if (_repositorios == null)
+        @foreach (var projeto in ProjetosData.Projetos)
         {
-            <div class="text-center">
-                <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
-            </div>
-        }
-        else
-        {
+            <div class="card-projeto">
+                <h4 class="card-projeto__titulo">@projeto.Titulo</h4>
+                <p>@projeto.Descricao</p>
 
-            @foreach (var projeto in _repositorios)
-            {
-                <div class="card-projeto">
-                    <h4 class="card-projeto__titulo">@projeto.Name</h4>
-                    <p>@projeto.Description</p>
-                    <MudButton EndIcon="@Icons.Custom.Brands.GitHub" Href="@projeto.HtmlUrl" Target="_blank"
+                <ul class="card-projeto__tecnologias">
+                    @foreach (var tecnologia in projeto.Tecnologias)
+                    {
+                        <li>
+                            <MudChip Color="Color.Primary">@tecnologia</MudChip>
+                        </li>
+                    }
+                </ul>
+                <div class="card-projeto__btns">
+                    <MudButton StartIcon="@Icons.Custom.Brands.GitHub" Href="@projeto.RepoUrl" Target="_blank"
                         Color="Color.Secondary" Style="text-transform: none;">
                         Repositório
                     </MudButton>
+                    @if (!string.IsNullOrEmpty(projeto.SiteUrl))
+                    {
+                        <MudButton StartIcon="@Icons.Material.Filled.Web" Href="@projeto.SiteUrl" Target="_blank"
+                            Color="Color.Secondary" Style="text-transform: none;">
+                            Site
+                        </MudButton>
+                    }
                 </div>
-            }
+            </div>
         }
     </div>
+
+    <MudButton Target="_blank" Color="Color.Tertiary" Href="https://github.com/Joaoalen98?tab=repositories">
+        Ver Todos no GitHub
+    </MudButton>
 </section>
 
 @code {
-    private IEnumerable<GitHubRepository> _repositorios;
 
-    protected async override Task OnInitializedAsync()
-    {
-        await base.OnInitializedAsync();
-        _repositorios = await Api.GetRepositorios("joaoalen98");
-    }
 }

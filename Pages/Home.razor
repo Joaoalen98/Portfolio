@@ -1,51 +1,37 @@
 ﻿@page "/"
 
-@inject GithubApiService Api
-
 <PageTitle>Home</PageTitle>
 
 <section class="home fade-in">
-    @if (_usuario == null)
-    {
-        <div class="text-center">
-            <MudProgressCircular Color="Color.Primary" Indeterminate="true" />
-        </div>
-    }
-    else
-    {
-        <div class="img-container">
-            <img class="img-perfil" src="@_usuario.AvatarUrl" />
-        </div>
-        <div class="apresentacao">
-            <h2 class="titulo">Sobre Mim</h2>
-            <small>Desenvolvedor C# .NET</small>
-            <br />
-            <br />
-            <p>
-                Olá, tudo bem? Meu nome é João Alencar, tenho 24 anos e estou atualmente cursando
-                Análise e Desenvolvimento de Sistemas na Faculdade Impacta de Tecnologia.
-                Apaixonado por tecnologia e sempre buscando adiquirir mais conhecimento nas
-                horas vagas.
-            </p>
-            <p>
-                Comecei meus estudos em programação na metade de 2021, ainda com muitas dúvidas de qual
-                carreira seguir, fui fazendo alguns cursos tanto no YouTube, quanto em plataformas por assinatura.
-            </p>
-            <p>
-                Em fevereiro de 2021, comecei a me interessar pela plataforma .NET ao fazer alguns cursos
-                disponibilizados pela própria faculdade.
-            </p>
-        </div>
-    }
+    <div class="img-container">
+        <img class="img-perfil" src="./assets/images/perfil.jpeg" />
+    </div>
+    <div class="apresentacao">
+        <h2 class="titulo">Sobre Mim</h2>
+        <small>Desenvolvedor C# .NET</small>
+        <br />
+        <br />
+        <p>
+            Olá, tudo bem? Meu nome é João Alencar, tenho 24 anos e estou atualmente cursando
+            Análise e Desenvolvimento de Sistemas na Faculdade Impacta de Tecnologia.
+            Apaixonado por tecnologia e sempre buscando adiquirir mais conhecimento nas
+            horas vagas.
+        </p>
+        <p>
+            Comecei meus estudos em programação na metade de 2021, ainda com muitas dúvidas de qual
+            carreira seguir, fui fazendo alguns cursos tanto no YouTube, quanto em plataformas por assinatura.
+        </p>
+        <p>
+            Em fevereiro de 2021, comecei a me interessar pela plataforma .NET ao fazer alguns cursos
+            disponibilizados pela própria faculdade.
+        </p>
+    </div>
 </section>
 
 @code {
-    private Owner _usuario;
-
     protected async override Task OnInitializedAsync()
     {
-        await base.OnInitializedAsync();
-        _usuario = await Api.GetDonoRepositorio("joaoalen98");
+
     }
 }
 

@@ -19,7 +19,7 @@
 <div class="experiencia-container">
     <h2 style="color: @Colors.DeepPurple.Accent2;">Experiências</h2>
 
-    @foreach (var experiencia in _experiencias)
+    @foreach (var experiencia in ExperienciaData.Experiencias)
     {
         <div class="card-experiencia">
             <h3>@experiencia.Empresa</h3>
@@ -37,28 +37,7 @@
 </div>
 
 @code {
-    private class ExperienciaModel
-    {
-        public string Empresa { get; set; }
 
-        public string Duracao { get; set; }
-
-        public List<string> Tecnologias { get; set; }
-    }
-
-    private List<ExperienciaModel> _experiencias = new List<ExperienciaModel>();
-
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
-
-        _experiencias.Add(new ExperienciaModel
-            {
-                Empresa = "Seu Din",
-                Duracao = "10/2022 - atualmente",
-                Tecnologias = new List<string>() { "HTML", "CSS", "Javascript", "Jquery", ".NET Core", ".NET Framework", "SQL Server" },
-            });
-    }
 }
 
 
