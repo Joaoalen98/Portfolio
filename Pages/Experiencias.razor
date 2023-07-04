@@ -1,0 +1,50 @@
+@page "/experiencias"
+
+<style>
+    .experiencia {
+        padding: 20px 5%;
+    }
+
+    .titulo {
+        color: var(--mud-palette-primary);
+        font-weight: bold;
+    }
+
+    .card-experiencia {
+        padding: 10px 0;
+        border-bottom: 1px solid #444;
+    }
+
+    .card-experiencia__tecnologias {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 10px 0;
+    }
+</style>
+
+<section class="experiencia fade-in">
+    <h2 class="titulo">Experiências</h2>
+
+    @foreach (var experiencia in ExperienciaData.Experiencias)
+    {
+        <div class="card-experiencia">
+            <h3>@experiencia.Empresa</h3>
+            <small>@experiencia.Ocupacao</small>
+            <br>
+            <small>@experiencia.Duracao</small>
+            <ul class="card-experiencia__tecnologias">
+                @foreach (var tecnologia in experiencia.Tecnologias)
+                {
+                    <li>
+                        <MudChip Color="Color.Primary">@tecnologia</MudChip>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+</section>
+
+@code {
+
+}

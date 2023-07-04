@@ -9,12 +9,24 @@ namespace Portfolio.Data
             new ProjetoModel
             {
                 Titulo = "Portfolio (este projeto)",
-                Descricao = "Portfolio criado em Blazor WebAssembly",
+                Descricao = "Portfolio criado em Blazor WebAssembly, utilizando a biblioteca MudBlazor",
                 RepoUrl = "https://github.com/Joaoalen98/Portfolio",
                 Tecnologias = new List<string>
                 {
                     "Blazor Web Assembly",
-                    "MudBlazor"
+                },
+            },
+            new ProjetoModel
+            {
+                Titulo = "Controle de Gastos",
+                Descricao = @"Aplicação para controle de despesas e receitas criadas com ASP.NET Core + Angular, 
+                    com foco no estudo dos fundamentos do Angular, como organização da aplicação por módulos, 
+                    componetização e reaproveitando de componentes, interceptadores de HTTP e route Guards.",
+                RepoUrl = "https://github.com/Joaoalen98/ControleGastos",
+                Tecnologias = new List<string>
+                {
+                    "Angular",
+                    "ASP NET Core WebAPI",
                 },
             },
             new ProjetoModel
@@ -24,7 +36,6 @@ namespace Portfolio.Data
                 RepoUrl = "https://github.com/Joaoalen98/CadastroContatos",
                 Tecnologias = new List<string>
                 {
-                    "Entity Framework",
                     "SQLite",
                     "ASP.NET WebAPI",
                     "Angular"
@@ -37,11 +48,9 @@ namespace Portfolio.Data
                 RepoUrl = "https://github.com/Joaoalen98/NetBank",
                 Tecnologias = new List<string>
                 {
-                    "Entity Framework",
                     "SQL Server",
                     "ASP.NET WebAPI",
-                    "MAUI",
-                    "XAML"
+                    ".NET MAUI",
                 },
             },
             new ProjetoModel {
